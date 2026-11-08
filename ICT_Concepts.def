@@ -1,0 +1,8 @@
+LIBRARY ICT_CONCEPTS
+
+EXPORTS Init
+	Calculate
+	ReplaceStr
+	IntrfProcsRec
+	OnParamsChange
+	Done
