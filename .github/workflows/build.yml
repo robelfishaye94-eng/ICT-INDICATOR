@@ -1,0 +1,27 @@
+name: Build indicator
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        arch: [x86, x64]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.arch }}
+
+      - name: Compile
+        shell: cmd
+        run: cl /nologo /LD /O2 /EHsc /MT ICT_Concepts.cpp /link /DEF:ICT_Concepts.def /OUT:ICT_Concepts_${{ matrix.arch }}.dll
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ICT_Concepts_${{ matrix.arch }}
+          path: ICT_Concepts_${{ matrix.arch }}.dll
