@@ -1,0 +1,8 @@
+LIBRARY PREVLEVELS_SESSIONS
+
+EXPORTS Init
+	Calculate
+	ReplaceStr
+	IntrfProcsRec
+	OnParamsChange
+	Done
