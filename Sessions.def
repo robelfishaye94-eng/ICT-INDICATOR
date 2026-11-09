@@ -1,0 +1,8 @@
+LIBRARY SESSIONS
+
+EXPORTS
+	Init
+	Calculate
+	ReplaceStr
+	IntrfProcsRec
+	OnParamsChange
